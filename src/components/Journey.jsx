@@ -1,11 +1,32 @@
 import { JOURNEY } from '../data'
 import { Section } from './ui'
 
-const Journey=()=>(
- <Section id="journey" tint eyebrow="Journey" title="Writing journey" sub="From Kaithal to Chandigarh, verse to prose.">
-  <div className="space-y-5">{JOURNEY.map(([p,h,t])=><div key={p} className="grid md:grid-cols-[200px_1fr] gap-3 md:gap-10 p-6 rounded-2xl border border-line bg-bg">
-   <p className="font-mono text-xs tracking-[.14em] uppercase text-blue font-bold">{p}</p>
-   <div><h3 className="text-ink font-semibold text-xl">{h}</h3><p className="text-mute mt-2 leading-relaxed max-w-2xl">{t}</p></div></div>)}</div>
- </Section>);
+function JourneyStep({ period, heading, text }) {
+  return (
+    <div className="grid gap-3 rounded-2xl border border-line bg-bg p-6 md:grid-cols-[200px_1fr] md:gap-10">
+      <p className="font-mono text-xs font-bold uppercase tracking-[.14em] text-blue">{period}</p>
+      <div>
+        <h3 className="text-xl font-semibold text-ink">{heading}</h3>
+        <p className="mt-2 leading-relaxed text-mute">{text}</p>
+      </div>
+    </div>
+  )
+}
 
-export default Journey
+export default function Journey() {
+  return (
+    <Section
+      id="journey"
+      tint
+      eyebrow="Journey"
+      title="Writing journey"
+      sub="From Kaithal to Chandigarh, verse to prose."
+    >
+      <div className="space-y-5">
+        {JOURNEY.map(([period, heading, text]) => (
+          <JourneyStep key={period} period={period} heading={heading} text={text} />
+        ))}
+      </div>
+    </Section>
+  )
+}

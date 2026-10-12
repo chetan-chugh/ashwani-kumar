@@ -1,15 +1,40 @@
-export const Eyebrow=({children})=><p className="font-mono text-[11px] tracking-[.18em] uppercase text-blue font-bold">{children}</p>;
+export function Eyebrow({ children }) {
+  return (
+    <p className="font-mono text-[11px] font-bold uppercase tracking-[.18em] text-blue">
+      {children}
+    </p>
+  )
+}
 
-export const Pill=({children,c="#8b8ba7"})=><span className="inline-block px-3 py-1 rounded-full text-xs font-medium border" style={{color:c,borderColor:c+"44",background:c+"14"}}>{children}</span>;
+// Rounded label tinted with one color (hex, e.g. "#6e86ff")
+export function Pill({ children, c = '#8b8ba7' }) {
+  return (
+    <span
+      className="inline-block rounded-full border px-3 py-1 text-xs font-medium"
+      style={{ color: c, borderColor: c + '44', background: c + '14' }}
+    >
+      {children}
+    </span>
+  )
+}
 
-export const Tag=({children})=><span className="inline-block px-3 py-1.5 rounded-lg text-xs text-mute bg-white/[.04] border border-line">{children}</span>;
+export function Tag({ children }) {
+  return (
+    <span className="inline-block rounded-lg border border-line bg-white/[.04] px-3 py-1.5 text-xs text-mute">
+      {children}
+    </span>
+  )
+}
 
-export const Section=({id,eyebrow,title,sub,children,tint})=>(
- <section id={id} className={"px-5 sm:px-8 py-20 sm:py-28 "+(tint?"bg-card/60":"")}>
-  <div className="max-w-6xl mx-auto">
-   <Eyebrow>{eyebrow}</Eyebrow>
-   <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-ink mt-3">{title}</h2>
-   {sub&&<p className="text-mute text-lg mt-4 max-w-xl">{sub}</p>}
-   <div className="mt-12 sm:mt-16">{children}</div>
-  </div>
- </section>);
+export function Section({ id, eyebrow, title, sub, children, tint }) {
+  return (
+    <section id={id} className={`px-5 py-20 sm:px-8 sm:py-28 ${tint ? 'bg-card/60' : ''}`}>
+      <div className="mx-auto max-w-6xl">
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <h2 className="mt-3 text-4xl font-extrabold text-ink sm:text-6xl">{title}</h2>
+        {sub && <p className="mt-4 max-w-xl text-lg text-mute">{sub}</p>}
+        <div className="mt-12 sm:mt-16">{children}</div>
+      </div>
+    </section>
+  )
+}

@@ -7,7 +7,31 @@ import Launch from './components/Launch'
 import Journey from './components/Journey'
 import Contact from './components/Contact'
 
-const App=()=>(<><Navbar/><main><Hero/><About/><Craft/><Books/><Launch/><Journey/><Contact/></main>
- <footer className="border-t border-line px-5 sm:px-8 py-8"><div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between gap-3 font-mono text-[11px] tracking-[.14em] uppercase text-dim"><span>© {new Date().getFullYear()} Ashwani Kumar 'Bheem'</span><span>Poet &amp; Writer · Chandigarh</span></div></footer></>);
+function Footer() {
+  return (
+    <footer className="border-t border-line px-5 py-8 sm:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-3 font-mono text-[11px] uppercase tracking-[.14em] text-dim sm:flex-row">
+        <span>© {new Date().getFullYear()} Ashwani Kumar 'Bheem'</span>
+        <span>Poet &amp; Writer · Chandigarh</span>
+      </div>
+    </footer>
+  )
+}
 
-export default App
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Craft />
+        <Books />
+        <Launch />
+        <Journey />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
+}
