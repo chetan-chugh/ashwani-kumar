@@ -1,6 +1,6 @@
-import { IMG } from '../data'
 import { useLang, useT } from '../i18n'
 import { ArrowIcon, MailIcon, BTN_GHOST } from './ui'
+import { HeroEventPreview } from './Events'
 import { Link } from '../router'
 import { useEffect, useState } from 'react'
 
@@ -78,35 +78,14 @@ function Intro() {
   )
 }
 
-// The author's photograph sits where the reference design has its 3D robot
-function Portrait() {
-  const t = useT().hero
-  return (
-    <div className="rise relative mx-auto w-full max-w-sm lg:max-w-md" style={delay('.4s')}>
-      <div className="pointer-events-none absolute -inset-10 rounded-full bg-[radial-gradient(closest-side,rgba(167,100,240,.35),transparent)] blur-2xl" />
-      <div className="float relative">
-        <div className="rounded-[2rem] border border-blue/40 bg-card p-2 shadow-[0_0_80px_-10px_rgba(167,123,242,.45)]">
-          <img
-            src={IMG.profile}
-            alt={t.photoAlt}
-            className="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top"
-          />
-        </div>
-        <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2.5 whitespace-nowrap rounded-full border border-line bg-bg/90 px-4 py-2 font-mono text-xs font-bold text-ink backdrop-blur">
-          <span className="h-2 w-2 rounded-full bg-emerald-400" />
-          {t.badge}
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default function Hero() {
   return (
     <section id="top" className="flex min-h-screen overflow-x-clip items-center px-5 pb-16 pt-32 sm:px-8">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-16 lg:grid-cols-[1.15fr_.85fr]">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-16 lg:grid-cols-[1.1fr_.9fr]">
         <Intro />
-        <Portrait />
+        <div className="rise w-full" style={delay('.4s')}>
+          <HeroEventPreview />
+        </div>
       </div>
     </section>
   )

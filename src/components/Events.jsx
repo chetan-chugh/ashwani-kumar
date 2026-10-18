@@ -23,13 +23,13 @@ function CountdownPill() {
   return <Pill c="#f0a8f5">{text}</Pill>
 }
 
-function UpcomingEvent() {
+function UpcomingEvent({ compact = false }) {
   const t = useT().events
   return (
-    <article className="grid items-center gap-8 rounded-3xl border border-blue/40 bg-card p-6 sm:p-10 md:grid-cols-[150px_1fr]">
-      <div className="mx-auto w-32 rounded-2xl border border-blue/30 bg-blue/10 py-6 text-center md:w-full">
+    <article className={`grid items-center rounded-3xl border border-blue/40 bg-card ${compact ? 'gap-5 p-5 sm:grid-cols-[64px_1fr]' : 'gap-8 p-6 sm:p-10 md:grid-cols-[150px_1fr]'}`}>
+      <div className={`mx-auto rounded-2xl border border-blue/30 bg-blue/10 text-center ${compact ? 'w-16 py-3 sm:w-16' : 'w-32 py-6 md:w-full'}`}>
         <p className="font-mono text-xs font-bold uppercase tracking-[.2em] text-blue">{t.month}</p>
-        <p className="my-1 text-6xl font-extrabold leading-none text-ink">07</p>
+        <p className={`my-1 font-extrabold leading-none text-ink ${compact ? 'text-3xl' : 'text-6xl'}`}>07</p>
         <p className="font-mono text-xs tracking-[.2em] text-mute">2026</p>
       </div>
 
@@ -39,18 +39,18 @@ function UpcomingEvent() {
           <CountdownPill />
         </div>
 
-        <h3 className="mt-5 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">
+        <h3 className={`mt-5 font-extrabold leading-snug text-ink ${compact ? 'text-xl sm:mt-2 sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>
           {t.name} <span className="font-semibold text-mute">{t.nameHi}</span>
         </h3>
 
-        <dl className="mt-5 grid max-w-xl gap-4 sm:grid-cols-2">
+        <dl className={`mt-5 grid max-w-xl gap-4 ${compact ? 'sm:mt-3 sm:grid-cols-2' : 'sm:grid-cols-2'}`}>
           <Detail label={t.date} value={t.dateValue} />
           <Detail label={t.venue} value={t.venueValue} />
         </dl>
 
-        <p className="mt-5 max-w-xl leading-relaxed text-mute">{t.desc}</p>
+        <p className={`mt-5 max-w-xl leading-relaxed text-mute ${compact ? 'text-sm sm:mt-4' : ''}`}>{t.desc}</p>
 
-        <div className="mt-7 flex flex-wrap gap-3">
+        <div className={`mt-7 flex flex-wrap gap-3 ${compact ? 'sm:mt-4' : ''}`}>
           <a href={CAL_URL} target="_blank" rel="noopener" className="btn-primary rounded-full px-5 py-3 text-sm font-semibold">
             {t.addCal}
           </a>
@@ -69,6 +69,24 @@ function StatCard({ number, title, text, color }) {
       <p className="text-5xl font-extrabold" style={{ color }}>{number}</p>
       <h3 className="mt-3 font-semibold text-ink">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-mute">{text}</p>
+    </div>
+  )
+}
+
+export function HeroEventPreview() {
+  const t = useT().events
+  return (
+    <div className="space-y-4">
+      <UpcomingEvent compact />
+      <div className="grid gap-3 sm:grid-cols-3">
+        {t.stats.map((s, i) => (
+          <div key={s.title} className="rounded-2xl border border-line bg-card p-4">
+            <p className="text-4xl font-extrabold" style={{ color: STAT_COLORS[i] }}>{s.number}</p>
+            <h3 className="mt-2 text-sm font-semibold text-ink">{s.title}</h3>
+            <p className="mt-2 text-xs leading-relaxed text-mute">{s.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
