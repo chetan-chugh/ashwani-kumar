@@ -26,8 +26,8 @@ function CountdownPill() {
 function UpcomingEvent({ compact = false }) {
   const t = useT().events
   return (
-    <article className={`grid items-center rounded-3xl border border-blue/40 bg-card ${compact ? 'gap-5 p-5 sm:grid-cols-[64px_1fr]' : 'gap-8 p-6 sm:p-10 md:grid-cols-[150px_1fr]'}`}>
-      <div className={`mx-auto rounded-2xl border border-blue/30 bg-blue/10 text-center ${compact ? 'w-16 py-3 sm:w-16' : 'w-32 py-6 md:w-full'}`}>
+    <article className={`grid items-center rounded-3xl border border-blue/40 bg-card ${compact ? 'gap-5 p-5 sm:grid-cols-[80px_1fr]' : 'gap-8 p-6 sm:p-10 md:grid-cols-[150px_1fr]'}`}>
+      <div className={`mx-auto rounded-2xl border border-blue/30 bg-blue/10 text-center ${compact ? 'w-20 py-3 sm:w-20' : 'w-32 py-6 md:w-full'}`}>
         <p className="font-mono text-xs font-bold uppercase tracking-[.2em] text-blue">{t.month}</p>
         <p className={`my-1 font-extrabold leading-none text-ink ${compact ? 'text-3xl' : 'text-6xl'}`}>07</p>
         <p className="font-mono text-xs tracking-[.2em] text-mute">2026</p>
