@@ -48,6 +48,13 @@ export default function BookCard({ b, n }) {
         </div>
 
         <h3 className="mt-5 text-3xl font-extrabold leading-snug text-ink lg:text-4xl">{title}</h3>
+        {b.form && (
+          <p className="mt-3">
+            <span className="inline-flex rounded-full border border-blue/40 bg-blue/10 px-3 py-1 text-sm font-bold text-blue">
+              {L(b.form)}
+            </span>
+          </p>
+        )}
         <p className="mt-1 text-mute lg:text-lg">{roman}</p>
         <p className="mt-4 text-mute lg:text-lg">{L(b.text)}</p>
 

@@ -21,12 +21,14 @@ export const CAL_URL =
 export const MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Library+Sector+17+Chandigarh'
 export const EVENT_DATE = '2026-11-07T00:00:00'
 
+// Each book can carry a `buyUrl` (its store page). While it is empty the Buy button opens an order email to the author.
 // ---------- Books (the last one has no cover yet, so it shows "Coming soon") ----------
 const PUB_SRISHTI = { en: 'Srishti Prakashan', hi: 'सृष्टि प्रकाशन' }
 
 export const BOOKS = [
   {
     slug: 'kabhi-to-subah-aayegi',
+    buyUrl: '',
     img: IMG.c1,
     launchImg: kabhiLaunch,
     title: 'कभी तो सुबह आयेगी',
@@ -35,8 +37,8 @@ export const BOOKS = [
     publisher: { en: 'Enkay Enterprises, Chandigarh', hi: 'एनके एंटरप्राइजेज, चंडीगढ़' },
     form: { en: 'Poetry collection', hi: 'काव्य संग्रह' },
     tags: {
-      en: ['Poetry', 'Debut', '2014'],
-      hi: ['कविता', 'पहली पुस्तक', '2014'],
+      en: ['Debut', '2014'],
+      hi: ['पहली पुस्तक', '2014'],
     },
     text: {
       en: 'His first collection, published with the support of the Haryana Sahitya Akademi. Poems on nature, longing and the hope that the night will end.',
@@ -49,16 +51,17 @@ export const BOOKS = [
   },
   {
     slug: 'aadmi-shwan-aur-rajneeti',
+    buyUrl: '',
     img: IMG.c2,
     launchImg: aadmiShwanLaunch,
     title: 'आदमी, श्वान और राजनीति',
     roman: 'Aadmi, Shwan Aur Rajneeti',
     year: '2021',
     publisher: PUB_SRISHTI,
-    form: { en: 'Satirical novel', hi: 'व्यंग्य उपन्यास' },
+    form: { en: 'Humorous satirical novel', hi: 'हास्य व्यंग्य उपन्यास' },
     tags: {
-      en: ['Satirical novel', 'Satire', '2021'],
-      hi: ['व्यंग्य उपन्यास', 'व्यंग्य', '2021'],
+      en: ['Satire', '2021'],
+      hi: ['व्यंग्य', '2021'],
     },
     text: {
       en: 'A sharp satire in which dogs and men share one throne room. Humour with a bite, aimed at power and those who chase it.',
@@ -71,6 +74,7 @@ export const BOOKS = [
   },
   {
     slug: 'bahan-kahti-thi',
+    buyUrl: '',
     img: IMG.c3,
     launchImg: IMG.launch,
     title: 'बहन कहती थी',
@@ -79,8 +83,8 @@ export const BOOKS = [
     publisher: PUB_SRISHTI,
     form: { en: 'Story collection', hi: 'कहानी संग्रह' },
     tags: {
-      en: ['Story collection', 'Fiction', '2023'],
-      hi: ['कहानी संग्रह', 'कथा साहित्य', '2023'],
+      en: ['Fiction', '2023'],
+      hi: ['कथा साहित्य', '2023'],
     },
     text: {
       en: 'Stories drawn from everyday life, family bonds and social questions, written in simple language that stays with the reader.',
@@ -93,13 +97,14 @@ export const BOOKS = [
   },
   {
     slug: 'sapnon-ka-hona-zaroori-hai',
+    buyUrl: '',
     img: IMG.c4,
     launchImg: sapnoLaunch,
     title: 'सपनों का होना जरूरी है',
     roman: 'Sapnon Ka Hona Zaroori Hai',
     year: '2023',
     publisher: PUB_SRISHTI,
-    form: null, // genre is not documented in the project files
+    form: { en: 'Poetry collection', hi: 'काव्य संग्रह' },
     tags: {
       en: ['Latest release', 'Srishti Prakashan'],
       hi: ['नवीनतम', 'सृष्टि प्रकाशन'],
@@ -118,6 +123,7 @@ export const BOOKS = [
     comingSoon: true,
     title: { en: 'Coming Soon', hi: 'जल्द आ रही है' },
     roman: { en: 'Fifth book in progress', hi: 'पाँचवीं पुस्तक पर काम जारी' },
+    form: { en: 'Humorous satirical articles', hi: 'हास्य व्यंग्य लेख' },
     tags: { en: ['Coming soon'], hi: ['जल्द आ रही है'] },
     text: {
       en: 'The fifth book is in progress. Its title and cover will be announced soon.',
@@ -130,40 +136,47 @@ export const BOOKS = [
   },
 ]
 
-// ---------- Literary groups (only names and associations are documented in the project) ----------
+// ---------- Literary groups the author has joined (list and cities as supplied by the author) ----------
 export const GROUPS = [
   {
     slug: 'abhivyakti',
     name: { en: 'Abhivyakti', hi: 'अभिव्यक्ति' },
     initial: { en: 'A', hi: 'अ' },
-    role: { en: 'Member', hi: 'सदस्य' },
+    place: { en: 'Chandigarh', hi: 'चंडीगढ़' },
     color: '#a77bf2',
   },
   {
     slug: 'manthan',
     name: { en: 'Manthan', hi: 'मंथन' },
     initial: { en: 'M', hi: 'म' },
-    role: { en: 'Member', hi: 'सदस्य' },
-    color: '#8b5cf6',
+    place: { en: 'Chandigarh', hi: 'चंडीगढ़' },
+    color: '#d764f0',
   },
   {
-    slug: 'kidar-adabi-trust',
-    name: { en: 'Kidar Adabi Trust', hi: 'किदर अदबी ट्रस्ट' },
-    initial: { en: 'K', hi: 'कि' },
-    role: { en: 'Member', hi: 'सदस्य' },
+    slug: 'kavya-kadam',
+    name: { en: 'Kavya Kadam', hi: 'काव्य कदम' },
+    initial: { en: 'K', hi: 'का' },
+    place: { en: 'Panchkula', hi: 'पंचकूला' },
     color: '#7c6cf0',
   },
   {
-    slug: 'haryana-sahitya-akademi',
-    name: { en: 'Haryana Sahitya Akademi', hi: 'हरियाणा साहित्य अकादमी' },
-    initial: { en: 'H', hi: 'ह' },
-    role: {
-      en: 'Book publication grant for his first collection (2013–2014)',
-      hi: 'पहले संग्रह के लिए पुस्तक प्रकाशन अनुदान (2013–2014)',
-    },
+    slug: 'kidar-adabi-trust',
+    name: { en: 'Kidar Adabi Trust', hi: 'किदार अदबी ट्रस्ट' },
+    initial: { en: 'K', hi: 'कि' },
+    place: { en: 'Panchkula', hi: 'पंचकूला' },
+    online: true,
     color: '#f0a8f5',
   },
+  {
+    slug: 'chandigarh-literary-society',
+    name: { en: 'Chandigarh Literary Society (CLS)', hi: 'चंडीगढ़ लिटरेरी सोसाइटी (CLS)' },
+    initial: { en: 'C', hi: 'चं' },
+    place: { en: 'Chandigarh', hi: 'चंडीगढ़' },
+    color: '#b79bf5',
+  },
 ]
+
+export const COMMUNITY = GROUPS.map(({ name }) => name)
 
 // ---------- About ----------
 export const FEATURE_STYLE = [
@@ -171,13 +184,6 @@ export const FEATURE_STYLE = [
   ['🎭', '#8b5cf6'],
   ['✍️', '#f0a8f5'],
   ['🏛️', '#7c6cf0'],
-]
-
-export const COMMUNITY = [
-  { en: 'Abhivyakti', hi: 'अभिव्यक्ति' },
-  { en: 'Manthan', hi: 'मंथन' },
-  { en: 'Kidar Adabi Trust', hi: 'किदर अदबी ट्रस्ट' },
-  { en: 'Haryana Sahitya Akademi', hi: 'हरियाणा साहित्य अकादमी' },
 ]
 
 export const STAT_COLORS = ['#a77bf2', '#8b5cf6', '#7c6cf0']
@@ -194,20 +200,12 @@ export const SKILLS = {
     { icon: 'globe', title: { en: 'Languages', hi: 'भाषाएँ' }, text: { en: 'Hindi, Khadi Boli, Punjabi', hi: 'हिंदी, खड़ी बोली, पंजाबी' } },
     { icon: 'calendar', title: { en: 'Event Organiser', hi: 'आयोजक' }, text: { en: '50+ events across the Tricity', hi: 'ट्राईसिटी में 50+ कार्यक्रम' } },
     { icon: 'mic', title: { en: 'Kavi Sammelans', hi: 'कवि सम्मेलन' }, text: { en: '100+ attended', hi: '100+ में सहभागिता' } },
-    { icon: 'users', title: { en: 'Literary Circles', hi: 'साहित्यिक मंडलियाँ' }, text: { en: 'Abhivyakti, Manthan, Kidar Adabi Trust', hi: 'अभिव्यक्ति, मंथन, किदर अदबी ट्रस्ट' } },
+    { icon: 'users', title: { en: 'Literary Groups', hi: 'साहित्यिक समूह' }, text: { en: '5 groups in Chandigarh, Panchkula and online', hi: '5 समूह: चंडीगढ़, पंचकूला और ऑनलाइन' } },
   ],
 }
 
 // ---------- Journey: { period, heading, text } ----------
 export const JOURNEY = [
-  {
-    period: { en: 'Today', hi: 'आज' },
-    heading: { en: 'Punjab & Haryana High Court', hi: 'पंजाब एवं हरियाणा उच्च न्यायालय' },
-    text: {
-      en: 'Works in Chandigarh and writes in the hours around a working day, which is where most of his poems begin.',
-      hi: 'चंडीगढ़ में कार्यरत हैं और कामकाजी दिन के आस-पास के घंटों में लिखते हैं, जहाँ से उनकी अधिकतर कविताएँ शुरू होती हैं।',
-    },
-  },
   {
     period: { en: '2013–2014', hi: '2013–2014' },
     heading: { en: 'First collection', hi: 'पहला संग्रह' },
