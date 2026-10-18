@@ -1,23 +1,10 @@
-import { Pill, Tag } from './ui'
-
-const EVENT_DATE = '2026-11-07T00:00:00'
-const CALENDAR_URL =
-  'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Kavi+Sammelan&dates=20261107/20261108&location=Library,+Sector+17,+Chandigarh'
-const MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Library+Sector+17+Chandigarh'
-
-const STATS = [
-  { number: '50+', title: 'Events organised', text: 'Literary and cultural events managed across Chandigarh, Panchkula and Mohali.', color: '#4f6ef7' },
-  { number: '100+', title: 'Kavi Sammelans attended', text: 'Poetry gatherings where poets share verse, ideas and the joy of literature.', color: '#8b5cf6' },
-  { number: '3', title: 'Cities of the Tricity', text: 'Chandigarh, Panchkula and Mohali, home ground for his events.', color: '#10b981' },
-]
-
-const COMMUNITY = ['Abhivyakti', 'Manthan', 'Kidar Adabi Trust', 'Haryana Sahitya Akademi']
+import { CAL_URL, MAP_URL, EVENT_DATE, COMMUNITY, STAT_COLORS } from '../data'
+import { useL, useT } from '../i18n'
+import { Pill, Tag, Reveal, AnimatedTitle } from './ui'
 
 const LABEL = 'font-mono text-[10px] uppercase tracking-[.2em] text-dim'
 
-function daysLeft() {
-  return Math.ceil((new Date(EVENT_DATE) - new Date()) / 864e5)
-}
+const daysLeft = () => Math.ceil((new Date(EVENT_DATE) - new Date()) / 864e5)
 
 function Detail({ label, value }) {
   return (
@@ -29,47 +16,46 @@ function Detail({ label, value }) {
 }
 
 function CountdownPill() {
+  const t = useT().events
   const left = daysLeft()
   if (left < 0) return null
-  const text = left === 0 ? 'Today' : `${left} ${left === 1 ? 'day' : 'days'} to go`
-  return <Pill c="#f59e0b">{text}</Pill>
+  const text = left === 0 ? t.today : `${left} ${left === 1 ? t.dayLeft : t.daysLeft}`
+  return <Pill c="#f0a8f5">{text}</Pill>
 }
 
 function UpcomingEvent() {
+  const t = useT().events
   return (
     <article className="grid items-center gap-8 rounded-3xl border border-blue/40 bg-card p-6 sm:p-10 md:grid-cols-[150px_1fr]">
       <div className="mx-auto w-32 rounded-2xl border border-blue/30 bg-blue/10 py-6 text-center md:w-full">
-        <p className="font-mono text-xs font-bold uppercase tracking-[.2em] text-blue">Nov</p>
+        <p className="font-mono text-xs font-bold uppercase tracking-[.2em] text-blue">{t.month}</p>
         <p className="my-1 text-6xl font-extrabold leading-none text-ink">07</p>
         <p className="font-mono text-xs tracking-[.2em] text-mute">2026</p>
       </div>
 
       <div>
         <div className="flex flex-wrap items-center gap-2">
-          <Pill c="#22b5e8">Upcoming event</Pill>
+          <Pill c="#d764f0">{t.upcoming}</Pill>
           <CountdownPill />
         </div>
 
-        <h3 className="mt-5 text-3xl font-extrabold text-ink sm:text-4xl">
-          Kavi Sammelan <span className="font-semibold text-mute">· कवि सम्मेलन</span>
+        <h3 className="mt-5 text-3xl font-extrabold leading-snug text-ink sm:text-4xl">
+          {t.name} <span className="font-semibold text-mute">{t.nameHi}</span>
         </h3>
 
         <dl className="mt-5 grid max-w-xl gap-4 sm:grid-cols-2">
-          <Detail label="Date" value="Saturday, 7 November 2026" />
-          <Detail label="Venue" value="The Library, Sector 17, Chandigarh" />
+          <Detail label={t.date} value={t.dateValue} />
+          <Detail label={t.venue} value={t.venueValue} />
         </dl>
 
-        <p className="mt-5 max-w-xl leading-relaxed text-mute">
-          An evening where poets gather to share their poetry, voice their thoughts and celebrate
-          literature. Everyone who loves words is welcome.
-        </p>
+        <p className="mt-5 max-w-xl leading-relaxed text-mute">{t.desc}</p>
 
         <div className="mt-7 flex flex-wrap gap-3">
-          <a href={CALENDAR_URL} target="_blank" rel="noopener" className="rounded-xl bg-blue px-5 py-3 text-sm font-semibold text-white hover:brightness-110">
-            Add to calendar
+          <a href={CAL_URL} target="_blank" rel="noopener" className="btn-primary rounded-full px-5 py-3 text-sm font-semibold">
+            {t.addCal}
           </a>
-          <a href={MAP_URL} target="_blank" rel="noopener" className="rounded-xl border border-line px-5 py-3 text-sm font-semibold text-ink hover:border-blue/60">
-            Get directions
+          <a href={MAP_URL} target="_blank" rel="noopener" className="btn-ghost rounded-full px-5 py-3 text-sm font-semibold">
+            {t.directions}
           </a>
         </div>
       </div>
@@ -79,7 +65,7 @@ function UpcomingEvent() {
 
 function StatCard({ number, title, text, color }) {
   return (
-    <div className="rounded-2xl border border-line bg-card p-6">
+    <div className="h-full rounded-2xl border border-line bg-card p-6">
       <p className="text-5xl font-extrabold" style={{ color }}>{number}</p>
       <h3 className="mt-3 font-semibold text-ink">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-mute">{text}</p>
@@ -88,27 +74,39 @@ function StatCard({ number, title, text, color }) {
 }
 
 export default function Events() {
+  const t = useT().events
+  const L = useL()
   return (
     <div id="events" className="mt-20 border-t border-line pt-16">
-      <h3 className="text-3xl font-extrabold text-ink sm:text-4xl">Events and literary achievements</h3>
-      <p className="mb-10 mt-3 max-w-xl text-lg text-mute">
-        Organising and joining poetry gatherings across the Tricity and beyond.
-      </p>
+      <AnimatedTitle
+        key={t.title}
+        as="h3"
+        onView
+        text={t.title}
+        className="text-3xl font-extrabold leading-snug text-ink sm:text-4xl"
+      />
+      <Reveal delay={200}>
+        <p className="mb-10 mt-3 max-w-xl text-lg text-mute">{t.sub}</p>
+      </Reveal>
 
-      <UpcomingEvent />
+      <Reveal><UpcomingEvent /></Reveal>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-3">
-        {STATS.map((s) => (
-          <StatCard key={s.title} {...s} />
+        {t.stats.map((s, i) => (
+          <Reveal key={s.title} delay={i * 120} className="h-full">
+            <StatCard {...s} color={STAT_COLORS[i]} />
+          </Reveal>
         ))}
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-2">
-        <span className={`${LABEL} mr-2`}>Community</span>
-        {COMMUNITY.map((name) => (
-          <Tag key={name}>{name}</Tag>
-        ))}
-      </div>
+      <Reveal className="mt-8">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className={`${LABEL} mr-2`}>{t.community}</span>
+          {COMMUNITY.map((g) => (
+            <Tag key={g.en}>{L(g)}</Tag>
+          ))}
+        </div>
+      </Reveal>
     </div>
   )
 }

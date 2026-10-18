@@ -1,37 +1,32 @@
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Craft from './components/Craft'
-import Books from './components/Books'
-import Launch from './components/Launch'
-import Journey from './components/Journey'
-import Contact from './components/Contact'
+import Footer from './components/Footer'
+import SideRail from './components/SideRail'
+import ScrollTop from './components/Scrollbar'
+import Home from './pages/Home'
+import BooksPage from './pages/BooksPage'
+import GroupsPage from './pages/GroupsPage'
+import ContactPage from './pages/ContactPage'
+import { useRoute } from './router'
 
-function Footer() {
-  return (
-    <footer className="border-t border-line px-5 py-8 sm:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-3 font-mono text-[11px] uppercase tracking-[.14em] text-dim sm:flex-row">
-        <span>© {new Date().getFullYear()} Ashwani Kumar 'Bheem'</span>
-        <span>Poet &amp; Writer · Chandigarh</span>
-      </div>
-    </footer>
-  )
+function Page({ path }) {
+  if (path === '/books') return <BooksPage />
+  if (path.startsWith('/books/')) return <BooksPage slug={path.slice('/books/'.length)} />
+  if (path === '/groups') return <GroupsPage />
+  if (path === '/contact') return <ContactPage />
+  return <Home />
 }
 
 export default function App() {
+  const path = useRoute()
   return (
     <>
-      <Navbar />
+      <Navbar path={path} />
+      <SideRail />
       <main>
-        <Hero />
-        <About />
-        <Craft />
-        <Books />
-        <Launch />
-        <Journey />
-        <Contact />
+        <Page path={path} />
       </main>
       <Footer />
+      <ScrollTop />
     </>
   )
 }

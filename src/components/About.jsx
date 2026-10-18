@@ -1,9 +1,18 @@
 import Events from './Events'
-import { FEATURES } from '../data'
-import { Section } from './ui'
+import { FEATURE_STYLE } from '../data'
+import { useT } from '../i18n'
+import { Section, Reveal } from './ui'
 
-// Bold highlighted text inside a paragraph
 const Bold = ({ children }) => <b className="font-semibold text-ink">{children}</b>
+
+// Renders ['plain', 'bold', 'plain', 'bold', ...] with every second piece in bold
+function Para({ parts }) {
+  return (
+    <p>
+      {parts.map((piece, i) => (i % 2 ? <Bold key={i}>{piece}</Bold> : piece))}
+    </p>
+  )
+}
 
 function FeatureCard({ icon, title, text, color }) {
   return (
@@ -16,36 +25,28 @@ function FeatureCard({ icon, title, text, color }) {
       </span>
       <div>
         <h3 className="font-semibold text-ink">{title}</h3>
-        <p className="text-sm text-dim">{text}</p>
+        <p className="text-sm text-mute">{text}</p>
       </div>
     </div>
   )
 }
 
 export default function About() {
+  const t = useT()
   return (
-    <Section id="about" eyebrow="About me" title="Poet, satirist, storyteller">
+    <Section id="about" eyebrow={t.about.eyebrow} title={t.about.title}>
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
         <div className="space-y-6 text-lg leading-[1.8] text-mute">
-          <p>
-            I'm <Bold>Ashwani Kumar 'Bheem'</Bold>, a Hindi poet and writer born in Kaithal,
-            Haryana, now living in Chandigarh. I have published <Bold>four books</Bold> and a
-            fifth is on the way.
-          </p>
-          <p>
-            By day I work at the <Bold>Punjab and Haryana High Court</Bold>. By night, and in the
-            margins of the day, I write — gentle verse, pointed satire and stories about ordinary
-            lives.
-          </p>
-          <p>
-            My work has been supported by the <Bold>Haryana Sahitya Akademi</Bold>, and I am a
-            member of Abhivyakti, Manthan and Kidar Adabi Trust.
-          </p>
+          <Reveal><Para parts={t.about.p1} /></Reveal>
+          <Reveal delay={120}><Para parts={t.about.p2} /></Reveal>
+          <Reveal delay={240}><Para parts={t.about.p3} /></Reveal>
         </div>
 
         <div className="space-y-4">
-          {FEATURES.map(([icon, title, text, color]) => (
-            <FeatureCard key={title} icon={icon} title={title} text={text} color={color} />
+          {t.about.features.map(([title, text], i) => (
+            <Reveal key={title} delay={i * 100}>
+              <FeatureCard icon={FEATURE_STYLE[i][0]} color={FEATURE_STYLE[i][1]} title={title} text={text} />
+            </Reveal>
           ))}
         </div>
       </div>

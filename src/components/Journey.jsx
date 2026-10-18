@@ -1,4 +1,5 @@
 import { JOURNEY } from '../data'
+import { useL, useT } from '../i18n'
 import { Section } from './ui'
 
 function JourneyStep({ period, heading, text }) {
@@ -14,17 +15,13 @@ function JourneyStep({ period, heading, text }) {
 }
 
 export default function Journey() {
+  const t = useT().journey
+  const L = useL()
   return (
-    <Section
-      id="journey"
-      tint
-      eyebrow="Journey"
-      title="Writing journey"
-      sub="From Kaithal to Chandigarh, verse to prose."
-    >
+    <Section id="journey" tint eyebrow={t.eyebrow} title={t.title} sub={t.sub}>
       <div className="space-y-5">
-        {JOURNEY.map(([period, heading, text]) => (
-          <JourneyStep key={period} period={period} heading={heading} text={text} />
+        {JOURNEY.map((j) => (
+          <JourneyStep key={j.period.en} period={L(j.period)} heading={L(j.heading)} text={L(j.text)} />
         ))}
       </div>
     </Section>
