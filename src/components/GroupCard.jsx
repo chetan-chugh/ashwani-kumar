@@ -1,4 +1,5 @@
 import { useL, useT } from '../i18n'
+import { Pill } from './ui'
 
 export default function GroupCard({ g }) {
   const t = useT().groups
@@ -14,8 +15,11 @@ export default function GroupCard({ g }) {
         {L(g.initial)}
       </span>
       <h3 className="mt-6 text-2xl font-extrabold leading-snug text-ink">{L(g.name)}</h3>
-      <p className="mt-5 font-mono text-[10px] uppercase tracking-[.2em] text-dim">{t.role}</p>
-      <p className="mt-1 font-medium text-ink">{L(g.role)}</p>
+      <p className="mt-5 font-mono text-[10px] uppercase tracking-[.2em] text-dim">{t.place}</p>
+      <div className="mt-1 flex flex-wrap items-center gap-2">
+        <p className="font-medium text-ink">{L(g.place)}</p>
+        {g.online && <Pill c="#d764f0">{t.online}</Pill>}
+      </div>
     </article>
   )
 }
