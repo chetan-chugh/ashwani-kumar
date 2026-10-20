@@ -5,7 +5,7 @@ import { MailIcon, FacebookIcon } from './ui'
 export default function Footer() {
   const t = useT()
   const { lang } = useLang()
-  const name = lang === 'hi' ? "अश्वनी कुमार 'भीम'" : "Ashwani Kumar 'Bheem'"
+  const name = lang === 'hi' ? 'अश्वनी मल्होत्रा "भीम"' : "Ashwani Malhotra 'Bheem'"
   const icon = 'flex h-10 w-10 items-center justify-center rounded-full border border-line text-mute transition hover:border-blue/60 hover:text-ink'
 
   return (
