@@ -49,7 +49,7 @@ export function useT() {
 
 const TEXT = {
   en: {
-    siteTitle: "Ashwani Kumar 'Bheem' — Poet & Writer",
+    siteTitle: "Ashwani Malhotra 'Bheem' — Poet & Writer",
     nav: { home: 'Home', books: 'Books', groups: 'Literary Group', contact: 'Contact Us' },
     langName: 'हिंदी',
     langLabel: 'Switch to Hindi',
@@ -60,7 +60,7 @@ const TEXT = {
 
     hero: {
       first: 'Ashwani',
-      last: 'Kumar',
+      last: "Malhotra 'Bheem'",
       eyebrow: 'Poet & Writer',
       tags: [
         ['Writes', 'Hindi Poetry, Satire & Stories'],
@@ -75,13 +75,13 @@ const TEXT = {
       readBooks: 'Read my books',
       quote: 'Born in Kaithal, Haryana. Writing from Chandigarh.',
       badge: 'Kavi Sammelan · 7 Nov 2026',
-      photoAlt: "Ashwani Kumar 'Bheem'",
+      photoAlt: "Ashwani Malhotra 'Bheem'",
     },
 
     about: {
-      eyebrow: 'About me',
-      title: 'Poet, satirist, storyteller',
-      p1: ['I\'m ', "Ashwani Kumar 'Bheem'", ', a Hindi poet and writer born in Kaithal, Haryana, now living in Chandigarh. I have published ', 'four books', ' and a fifth is on the way.'],
+      eyebrow: 'About',
+      title: 'About us',
+      p1: ['I\'m ', "Ashwani Malhotra 'Bheem'", ', a Hindi poet and writer born in Kaithal, Haryana, now living in Chandigarh. I have published ', 'four books', ' and a fifth is on the way.'],
       p2: ['I write ', 'gentle verse, pointed satire', ' and stories about ordinary lives.'],
       p3: ['My work has been supported by the ', 'Haryana Sahitya Akademi', ', and I am part of five literary groups: Abhivyakti, Manthan, Kavya Kadam, Kidar Adabi Trust and Chandigarh Literary Society.'],
       features: [
@@ -167,7 +167,7 @@ const TEXT = {
     groups: {
       eyebrow: 'Literary Group',
       title: 'Literary groups & organisations',
-      sub: 'The literary communities and institutions Ashwani Kumar is associated with.',
+      sub: "The literary communities and institutions Ashwani Malhotra 'Bheem' is associated with.",
       place: 'Location',
       online: 'Online',
       note: 'More details about this group will be added soon.',
@@ -213,7 +213,7 @@ const TEXT = {
   },
 
   hi: {
-    siteTitle: "अश्वनी कुमार 'भीम' — कवि एवं लेखक",
+    siteTitle: 'अश्वनी मल्होत्रा "भीम" — कवि एवं लेखक',
     nav: { home: 'मुख्य पृष्ठ', books: 'पुस्तकें', groups: 'साहित्यिक समूह', contact: 'संपर्क करें' },
     langName: 'English',
     langLabel: 'अंग्रेज़ी में देखें',
@@ -224,7 +224,7 @@ const TEXT = {
 
     hero: {
       first: 'अश्वनी',
-      last: 'कुमार',
+      last: 'मल्होत्रा "भीम"',
       eyebrow: 'कवि एवं लेखक',
       tags: [
         ['लिखते हैं', 'हिंदी कविता, व्यंग्य और कहानियाँ'],
@@ -239,13 +239,13 @@ const TEXT = {
       readBooks: 'मेरी पुस्तकें पढ़ें',
       quote: 'हरियाणा के कैथल में जन्म। चंडीगढ़ से लेखन।',
       badge: 'कवि सम्मेलन · 7 नवंबर 2026',
-      photoAlt: "अश्वनी कुमार 'भीम'",
+      photoAlt: 'अश्वनी मल्होत्रा "भीम"',
     },
 
     about: {
-      eyebrow: 'मेरे बारे में',
-      title: 'कवि, व्यंग्यकार, कथाकार',
-      p1: ['मैं ', "अश्वनी कुमार 'भीम'", ' हूँ, हरियाणा के कैथल में जन्मा हिंदी कवि और लेखक, जो अब चंडीगढ़ में रहता हूँ। मेरी ', 'चार पुस्तकें', ' प्रकाशित हो चुकी हैं और पाँचवीं आने वाली है।'],
+      eyebrow: 'परिचय',
+      title: 'हमारे बारे में',
+      p1: ['मैं ', 'अश्वनी मल्होत्रा "भीम"', ' हूँ, हरियाणा के कैथल में जन्मा हिंदी कवि और लेखक, जो अब चंडीगढ़ में रहता हूँ। मेरी ', 'चार पुस्तकें', ' प्रकाशित हो चुकी हैं और पाँचवीं आने वाली है।'],
       p2: ['मैं ', 'कोमल कविताएँ, तीखा व्यंग्य', ' और आम ज़िंदगियों की कहानियाँ लिखता हूँ।'],
       p3: ['मेरे लेखन को ', 'हरियाणा साहित्य अकादमी', ' का सहयोग मिला है, और मैं पाँच साहित्यिक समूहों से जुड़ा हूँ: अभिव्यक्ति, मंथन, काव्य कदम, किदार अदबी ट्रस्ट और चंडीगढ़ लिटरेरी सोसाइटी।'],
       features: [
@@ -331,7 +331,7 @@ const TEXT = {
     groups: {
       eyebrow: 'साहित्यिक समूह',
       title: 'साहित्यिक समूह और संस्थाएँ',
-      sub: "वे साहित्यिक समुदाय और संस्थाएँ जिनसे अश्वनी कुमार 'भीम' जुड़े हैं।",
+      sub: 'वे साहित्यिक समुदाय और संस्थाएँ जिनसे अश्वनी मल्होत्रा "भीम" जुड़े हैं।',
       place: 'स्थान',
       online: 'ऑनलाइन',
       note: 'इस समूह की अधिक जानकारी शीघ्र जोड़ी जाएगी।',

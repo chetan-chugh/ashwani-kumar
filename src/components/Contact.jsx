@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { EMAIL, FACEBOOK_URL } from '../data'
-import { useL, useT } from '../i18n'
+import { useLang, useL, useT } from '../i18n'
 
 // Fill and border are clearly lighter than the page so the boxes show before they are tapped
 const INPUT =
@@ -55,6 +55,7 @@ const EMPTY = { name: '', email: '', subject: '', message: '' }
 
 export default function Contact() {
   const t = useT().contact
+  const { lang } = useLang()
   const [values, setValues] = useState(EMPTY)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | error | opened
@@ -91,7 +92,12 @@ export default function Contact() {
         <div className="space-y-4">
           <ContactCard label={t.email} text={EMAIL} href={`mailto:${EMAIL}`} />
           <ContactCard label={t.location} text={t.locationValue} />
-          <ContactCard label={t.facebook} text="Ashwani Kumar 'Bheem'" href={FACEBOOK_URL} external />
+          <ContactCard
+            label={t.facebook}
+            text={lang === 'hi' ? 'अश्वनी मल्होत्रा "भीम"' : "Ashwani Malhotra 'Bheem'"}
+            href={FACEBOOK_URL}
+            external
+          />
         </div>
 
         <form onSubmit={onSubmit} noValidate className="space-y-5 rounded-3xl border border-line bg-card p-5 sm:p-8">
