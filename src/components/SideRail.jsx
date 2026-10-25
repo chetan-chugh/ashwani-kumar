@@ -1,6 +1,6 @@
-import { EMAIL, FACEBOOK_URL } from '../data'
+import { EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from '../data'
 import { useT } from '../i18n'
-import { MailIcon, FacebookIcon } from './ui'
+import { MailIcon, FacebookIcon, InstagramIcon } from './ui'
 
 // Floating vertical contact rail on the left (wide screens only, so it never covers content)
 export default function SideRail() {
@@ -13,6 +13,7 @@ export default function SideRail() {
     >
       <a href={`mailto:${EMAIL}`} aria-label={t.email} title={EMAIL} className={item}><MailIcon /></a>
       <a href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label={t.facebook} className={item}><FacebookIcon /></a>
+      <a href={INSTAGRAM_URL} target="_blank" rel="noopener" aria-label={t.instagram} title="Instagram" className={item}><InstagramIcon /></a>
     </aside>
   )
 }

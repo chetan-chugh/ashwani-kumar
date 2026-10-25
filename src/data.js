@@ -7,8 +7,10 @@ import c4 from './assets/c4.jpg'
 import sapnoLaunch from './assets/sapno-launch.jpg'
 import aadmiShwanLaunch from './assets/aadmi-shwan-launch.jpg'
 import kabhiLaunch from './assets/kabhi-launch.jpg'
+import aadhiUmarCover from './assets/aadhi-umar-poori-jawani.jpg'
+import aadhiUmarLaunch from './assets/aadhi-umar-poori-jawani-launch.jpg'
 
-export const IMG = { launch, profile, c1, c2, c3, c4 }
+export const IMG = { launch, profile, c1, c2, c3, c4, aadhiUmarCover }
 
 // Bilingual values are { en, hi } pairs; read them with the useL() hook from i18n.jsx.
 
@@ -16,13 +18,14 @@ export const IMG = { launch, profile, c1, c2, c3, c4 }
 export const EMAIL = 'akm4967hc@gmail.com'
 // NOTE: this is the generic Facebook address that was already in the project, not a personal profile.
 export const FACEBOOK_URL = 'https://www.facebook.com/'
+export const INSTAGRAM_URL = 'https://www.instagram.com/'
 export const CAL_URL =
-  'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Kavi+Sammelan&dates=20261107/20261108&location=Library,+Sector+17,+Chandigarh'
+  'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Kavi+Sammelan&dates=20261111/20261112&location=Library,+Sector+17,+Chandigarh'
 export const MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Library+Sector+17+Chandigarh'
-export const EVENT_DATE = '2026-11-07T00:00:00'
+export const EVENT_DATE = '2026-11-11T00:00:00'
 
 // Each book can carry a `buyUrl` (its store page). While it is empty the Buy button opens an order email to the author.
-// ---------- Books (the last one has no cover yet, so it shows "Coming soon") ----------
+// ---------- Books ----------
 const PUB_SRISHTI = { en: 'Srishti Prakashan', hi: 'सृष्टि प्रकाशन' }
 
 export const BOOKS = [
@@ -104,34 +107,40 @@ export const BOOKS = [
     roman: 'Sapnon Ka Hona Zaroori Hai',
     year: '2023',
     publisher: PUB_SRISHTI,
-    form: { en: 'Poetry collection', hi: 'काव्य संग्रह' },
+    form: { en: 'कविता संग्रह', hi: 'कविता संग्रह' },
     tags: {
-      en: ['Latest release', 'Srishti Prakashan'],
-      hi: ['नवीनतम', 'सृष्टि प्रकाशन'],
+      en: ['Poetry collection', 'Srishti Prakashan'],
+      hi: ['कविता संग्रह', 'सृष्टि प्रकाशन'],
     },
     text: {
-      en: 'His most recent book. A reminder, in his dusk-lit imagery, that a life without dreams is an unfinished one.',
-      hi: 'उनकी सबसे नई पुस्तक। साँझ के रंगों वाली छवियों में एक याद दिलाती है कि सपनों के बिना जीवन अधूरा है।',
+      en: 'A reminder, in his dusk-lit imagery, that a life without dreams is an unfinished one.',
+      hi: 'साँझ के रंगों वाली छवियों में यह याद दिलाती है कि सपनों के बिना जीवन अधूरा है।',
     },
     feats: {
-      en: ['Newest title', 'Srishti Prakashan'],
-      hi: ['नवीनतम पुस्तक', 'सृष्टि प्रकाशन'],
+      en: ['Poetry collection', 'Srishti Prakashan'],
+      hi: ['कविता संग्रह', 'सृष्टि प्रकाशन'],
     },
   },
   {
-    slug: 'coming-soon',
-    comingSoon: true,
-    title: { en: 'Coming Soon', hi: 'जल्द आ रही है' },
-    roman: { en: 'Fifth book in progress', hi: 'पाँचवीं पुस्तक पर काम जारी' },
-    form: { en: 'Humorous satirical articles', hi: 'हास्य व्यंग्य लेख' },
-    tags: { en: ['Coming soon'], hi: ['जल्द आ रही है'] },
+    slug: 'aadhi-umar-poori-jawani',
+    buyUrl: '',
+    img: aadhiUmarCover,
+    launchImg: aadhiUmarLaunch,
+    launchYear: '2026',
+    year: '2026',
+    title: 'आधी उम्र पूरी जवानी',
+    roman: 'Aadhi Umar Poori Jawani',
+    tags: {
+      en: ['Fifth book'],
+      hi: ['पाँचवीं पुस्तक'],
+    },
     text: {
-      en: 'The fifth book is in progress. Its title and cover will be announced soon.',
-      hi: 'पाँचवीं पुस्तक पर काम चल रहा है। इसका शीर्षक और आवरण शीघ्र घोषित किया जाएगा।',
+      en: 'A reflection on age and the youthful spirit that keeps life full of hope, dreams, and possibility.',
+      hi: 'उम्र बढ़ने पर भी जवानी के उत्साह, उम्मीदों और सपनों को जीवित रखने वाली एक सोच।',
     },
     feats: {
-      en: ['Fifth book in progress', 'Title and cover to be announced'],
-      hi: ['पाँचवीं पुस्तक पर काम जारी', 'शीर्षक और आवरण की घोषणा शीघ्र'],
+      en: ["Fifth book by Ashwani Malhotra 'Bheem'"],
+      hi: ['अश्वनी मल्होत्रा "भीम" की पाँचवीं पुस्तक'],
     },
   },
 ]

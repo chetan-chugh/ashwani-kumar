@@ -1,6 +1,5 @@
 import Hero from '../components/Hero'
 import About from '../components/About'
-import Craft from '../components/Craft'
 import { useT } from '../i18n'
 import { Link } from '../router'
 import { ArrowIcon, BTN_PRIMARY, AnimatedTitle, Reveal } from '../components/ui'
@@ -11,7 +10,6 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      <Craft />
 
       <section className="px-5 py-24 text-center sm:px-8 sm:py-32">
         <div className="mx-auto max-w-2xl">

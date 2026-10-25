@@ -16,23 +16,27 @@ function Para({ parts }) {
 
 function RecentBookCard({ book }) {
   const L = useL()
+  const t = useT().books
   return (
-    <Link
-      to={`/books/${book.slug}`}
-      className="flex items-center gap-5 rounded-2xl border border-line bg-card p-4 transition hover:border-blue/40"
-    >
+    <div className="flex items-center gap-5 rounded-2xl border border-line bg-card p-4 transition hover:border-blue/40">
       <img
         src={book.img}
         alt=""
         loading="lazy"
         className="h-20 w-16 shrink-0 rounded-lg border border-line object-cover"
       />
-      <div className="min-w-0">
+      <div className="min-w-0 flex-1">
         <h3 className="font-semibold text-ink">{L(book.title)}</h3>
-        {book.form && <p className="mt-1 text-sm text-mute">{L(book.form)}</p>}
+        <p className="mt-1 text-sm text-mute">कविता संग्रह</p>
         <p className="mt-1 font-mono text-xs text-blue">{book.year}</p>
       </div>
-    </Link>
+      <Link
+        to={`/books/${book.slug}`}
+        className="ml-auto shrink-0 btn-primary rounded-full px-4 py-2 text-xs font-semibold"
+      >
+        {t.details}
+      </Link>
+    </div>
   )
 }
 

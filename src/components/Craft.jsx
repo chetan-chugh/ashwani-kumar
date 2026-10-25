@@ -1,22 +1,6 @@
-import { SKILLS } from '../data'
-import { useL, useT } from '../i18n'
+import { useT } from '../i18n'
 import { Section, Reveal } from './ui'
 import Icon from './icons'
-
-function SkillCard({ item }) {
-  const L = useL()
-  return (
-    <div className="flex items-center gap-4 rounded-2xl border border-line bg-card/70 p-4 transition hover:border-blue/40">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-bg text-blue">
-        <Icon name={item.icon} />
-      </span>
-      <div className="min-w-0">
-        <h3 className="font-mono text-sm font-bold text-ink">{L(item.title)}</h3>
-        <p className="mt-0.5 text-sm text-mute">{L(item.text)}</p>
-      </div>
-    </div>
-  )
-}
 
 // Rings of icons that turn slowly around a centre badge. Each item sits on its ring by
 // rotate + translate; the item's inner span turns back so the icon stays upright.
@@ -72,18 +56,8 @@ export default function Craft() {
   const t = useT().craft
   return (
     <Section id="craft" tint eyebrow={t.eyebrow} title={t.title} sub={t.sub}>
-      <div className="grid grid-cols-1 items-center gap-6 rounded-[2.5rem] border border-line bg-gradient-to-b from-card/40 to-transparent p-5 sm:p-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-8 lg:p-10 [&>*]:min-w-0">
-        <div className="space-y-4">
-          {SKILLS.left.map((item, i) => (
-            <Reveal key={item.icon} delay={i * 110}><SkillCard item={item} /></Reveal>
-          ))}
-        </div>
+      <div className="grid min-h-[380px] place-items-center overflow-hidden rounded-[2.5rem] border border-line bg-gradient-to-b from-card/40 to-transparent p-5 sm:p-8 lg:min-h-[452px] lg:p-10">
         <Reveal delay={100}><Orbit /></Reveal>
-        <div className="space-y-4">
-          {SKILLS.right.map((item, i) => (
-            <Reveal key={item.icon} delay={i * 110 + 150}><SkillCard item={item} /></Reveal>
-          ))}
-        </div>
       </div>
     </Section>
   )

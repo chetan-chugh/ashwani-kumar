@@ -101,7 +101,7 @@ export default function BookDetails({ slug }) {
 
         {book.launchImg && (
           <Reveal className="mt-16 border-t border-line pt-12">
-            <h2 className={LABEL}>{t.launch} · {book.year}</h2>
+            <h2 className={LABEL}>{t.launch}{book.launchYear ? ` · ${book.launchYear}` : ''}</h2>
             <img
               src={book.launchImg}
               alt={`${t.launchOf} ${book.roman}`}

@@ -9,6 +9,9 @@ export const MailIcon = () => (
 export const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" {...ICON}><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5A.5.5 0 0 1 14 8" /></svg>
 )
+export const InstagramIcon = () => (
+  <svg viewBox="0 0 24 24" {...ICON}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none" /></svg>
+)
 export const ArrowIcon = () => (
   <svg viewBox="0 0 24 24" {...ICON}><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
 )

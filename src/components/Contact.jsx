@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { EMAIL, FACEBOOK_URL } from '../data'
+import { EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from '../data'
 import { useLang, useL, useT } from '../i18n'
 
 // Fill and border are clearly lighter than the page so the boxes show before they are tapped
@@ -96,6 +96,12 @@ export default function Contact() {
             label={t.facebook}
             text={lang === 'hi' ? 'अश्वनी मल्होत्रा "भीम"' : "Ashwani Malhotra 'Bheem'"}
             href={FACEBOOK_URL}
+            external
+          />
+          <ContactCard
+            label={t.instagram}
+            text="instagram.com"
+            href={INSTAGRAM_URL}
             external
           />
         </div>
