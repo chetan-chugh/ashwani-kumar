@@ -7,8 +7,8 @@ import c4 from './assets/c4.jpg'
 import sapnoLaunch from './assets/sapno-launch.jpg'
 import aadmiShwanLaunch from './assets/aadmi-shwan-launch.jpg'
 import kabhiLaunch from './assets/kabhi-launch.jpg'
-import aadhiUmarCover from './assets/aadhi-umar-poori-jawani.jpg'
-import aadhiUmarLaunch from './assets/aadhi-umar-poori-jawani-launch.jpg'
+import aadhiUmarCover from './book-images/aadhi-umar-poori-jawani.jpg'
+import aadhiUmarLaunch from './book-images/aadhi-umar-poori-jawani-launch.jpg'
 
 export const IMG = { launch, profile, c1, c2, c3, c4, aadhiUmarCover }
 
